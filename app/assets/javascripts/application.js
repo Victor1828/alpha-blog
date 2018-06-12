@@ -11,12 +11,19 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
 // Bootstrap
-
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+// Sweetalert
+//= require sweetalert2
+//= require rails-sweetalert2-confirm
+
+// Assets Javascripts
+//= require validate
