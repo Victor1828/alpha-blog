@@ -7,14 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://blackrockdigital.github.io/startbootstrap-freelancer/css/freelancer.min.css" rel="stylesheet">
   </head>
 
   <body>
     <%= render "layouts/navbar" %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <%= render "layouts/footer" %>
   </body>
 </html>
