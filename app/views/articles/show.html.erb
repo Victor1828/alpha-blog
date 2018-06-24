@@ -5,12 +5,18 @@
     </div>
     <div class="card-body">
       <p class="card-text"><%= @article.description %></p>
-      <%= link_to "Back to article list", articles_path, class: "btn btn-sm btn-primary" %>
-      <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-success" %>
-      <%= link_to "Delete this article", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+      <%= link_to articles_path do %>
+        <%= icon('fas', 'arrow-circle-left') %>
+      <% end %>  
+      <%= link_to edit_article_path(@article) do %>
+        <%= icon('fas', 'edit') %>
+      <% end %>
+      <%= link_to article_path(@article), method: :delete do %>
+        <%= icon('fas', 'trash') %>
+      <% end %>
     </div>
     <div class="card-footer text-muted">
-      <%= @article.created_at %>
+      Created <%= time_ago_in_words(@article.created_at) %> ago
     </div>
   </div>
 </div>
