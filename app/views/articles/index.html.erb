@@ -3,40 +3,27 @@
   <p>
     <%= link_to "Create new article", new_article_path %>
   </p>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Created at</th>
-          <th scope="col">Updated at</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @articles.each_with_index do |article, i| %>
-          <tr>
-            <th scope="row"><%= i + 1 %></th>
-            <td><%= article.title %></td>
-            <td><%= truncate(article.description, length: 30, separator: ' ') %></td>
-            <td><%= article.created_at.strftime("%d/%m/%y %R") %></td>
-            <td><%= article.updated_at.strftime("%d/%m/%y %R") %></td>
-            <td>
-              <%= link_to edit_article_path(article) do %>
-                <%= icon('fas', 'edit') %>
-              <% end %>
-              <%= link_to article_path(article) do %>
-                <%= icon('fas', 'eye', style:"margin: 0 5px") %>
-              <% end %>
-              <%= link_to article_path(article), method: :delete do %>
-                <%= icon('fas', 'trash') %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <% @articles.each_with_index do |article, i| %>
+    <div class="card" style="margin-bottom: 10px;">
+      <div class="card-header text-center">
+        <h4 style="font-weight: bold;"><%= article.title %></h4>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><%= truncate(article.description, length: 100, separator: ' ') %></p>
+          <footer>
+            <%= link_to edit_article_path(article) do %>
+              <%= icon('fas', 'edit') %>
+            <% end %>
+            <%= link_to article_path(article) do %>
+              <%= icon('fas', 'eye', style:"margin: 0 5px") %>
+            <% end %>
+            <%= link_to article_path(article), method: :delete do %>
+              <%= icon('fas', 'trash') %>
+            <% end %>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  <% end %>
 </div>
