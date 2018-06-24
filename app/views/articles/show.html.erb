@@ -1,7 +1,6 @@
-<section class="mt-5 bg-primary text-white mb-0" id="article <%= @article.id %>">
-    <div class="container">
-        <h2 class="text-center text-uppercase text-white"><%= @article.title %></h2>
-        <hr class="star-light mb-5">
-        <p class="lead"><%= @article.description%></p>
-    </div>
-</section>
+<div class="container">
+  <h2 class="text-center"><%= @article.title %></h2>
+  <p class="lead"><%= @article.description%></p>
+  <%= link_to "Back to article list", articles_path %>
+  <%= link_to "Edit this article", edit_article_path(@article) %>
+</div>

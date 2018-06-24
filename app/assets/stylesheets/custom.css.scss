@@ -1,3 +1,7 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'bootstrap';
+
 #logo {
   float: left;
   font-size: 1.7em;
@@ -24,11 +28,13 @@
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
+  font-size: 63px;
 }
 
 .btn-xlarge {
   font-size: 1.7em;
   background-color: black;
+  padding: 6px 12px;
 }
 
 footer {
