@@ -1,0 +1,18 @@
+<h2 class="text-center">All Alpha Bloggers</h2>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-4">
+      <div class="card mx-auto d-block" style="width: 18rem; margin-bottom: 10px;">
+        <%= link_to user_path(user) do %>
+          <%= image_tag gravatar_for(user, size: 300), alt: user.username, class: "img-thumbnail card-img-top" %>
+        <% end %>  
+        <div class="card-body">
+          <%= link_to user_path(user) do %>
+            <h4 class="card-title"><%= user.username %></h4>
+          <% end %>  
+          <p class="card-text"><%= !user.articles.empty? ? pluralize(user.articles.count, "article") : "This user has not created any articles" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -20,3 +20,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+// Tooltip function
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

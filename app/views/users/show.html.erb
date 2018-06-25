@@ -1,0 +1,4 @@
+<h2 class="text-center">Welcome to <%= @user.username %>'s page</h2>
+<%= image_tag gravatar_for(@user, size: 100), alt: @user.username, class: "rounded-circle mx-auto d-block" %>
+<h4 class="text-center" style="margin-top: 15px;"><%= @user.username %>'s articles</h4>
+<%= render "articles/article_list", obj: @user.articles %>

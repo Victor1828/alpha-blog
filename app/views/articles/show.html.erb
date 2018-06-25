@@ -4,14 +4,14 @@
       <%= @article.title %>
     </div>
     <div class="card-body">
-      <p class="card-text"><%= @article.description %></p>
-      <%= link_to articles_path do %>
+      <p class="card-text lead"><%= @article.description %></p>
+      <%= link_to articles_path, data: { toggle: "tooltip", placement: "top" }, title: "Back to articles list" do %>
         <%= icon('fas', 'arrow-circle-left') %>
       <% end %>  
-      <%= link_to edit_article_path(@article) do %>
+      <%= link_to edit_article_path(@article), data: { toggle: "tooltip", placement: "top" }, title: "Edit" do %>
         <%= icon('fas', 'edit') %>
       <% end %>
-      <%= link_to article_path(@article), method: :delete do %>
+      <%= link_to article_path(@article), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete" do %>
         <%= icon('fas', 'trash') %>
       <% end %>
     </div>
