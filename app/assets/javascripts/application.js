@@ -21,7 +21,7 @@
 //= require popper
 //= require bootstrap
 
-// Tooltip function
-$(function () {
+$(document).ready(function () {
+  // Tooltip function
   $('[data-toggle="tooltip"]').tooltip()
 })

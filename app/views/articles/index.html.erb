@@ -4,4 +4,5 @@
     <%= link_to "Create new article", new_article_path %>
   </p>
   <%= render "article_list", obj: @articles %>
+  <%= will_paginate @articles, list_classes: ["pagination", "justify-content-center"] %>
 </div>
