@@ -11,6 +11,17 @@
             <h4 class="card-title"><%= user.username %></h4>
           <% end %>  
           <p class="card-text"><%= !user.articles.empty? ? pluralize(user.articles.count, "article") : "This user has not created any articles" %></p>
+          <% if logged_in? && current_user.admin? %>
+            <footer style="font-size: 90%; padding-top: 5px; border-top: 1px solid #eaeaea;">
+              <ul style="margin: 0px; float: right; list-style: none;">
+                <li>
+                  <%= link_to user_path(user), method: :delete, data: { confirm: "Are you sure?", toggle: "tooltip", placement: "top" }, title: "Delete" do %>
+                    <%= icon('fas', 'trash', style:"margin: 0 5px") %>
+                  <% end %>
+                </li>
+              </ul>
+            </footer>
+          <% end %>
         </div>
       </div>
     </div>

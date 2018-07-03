@@ -1,22 +1,30 @@
 <div class="container">
-  <div class="card text-center">
-    <div class="card-header">
-      <%= @article.title %>
+  <div class="card">
+    <div class="card-header text-center">
+      <h4 style="font-weight: bold;"><%= @article.title %></h4>
     </div>
     <div class="card-body">
-      <p class="card-text lead"><%= @article.description %></p>
-      <%= link_to articles_path, data: { toggle: "tooltip", placement: "top" }, title: "Back to articles list" do %>
-        <%= icon('fas', 'arrow-circle-left') %>
-      <% end %>  
-      <%= link_to edit_article_path(@article), data: { toggle: "tooltip", placement: "top" }, title: "Edit" do %>
-        <%= icon('fas', 'edit') %>
-      <% end %>
-      <%= link_to article_path(@article), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete" do %>
-        <%= icon('fas', 'trash') %>
-      <% end %>
-    </div>
-    <div class="card-footer text-muted">
-      Created <%= time_ago_in_words(@article.created_at) %> ago
+      <blockquote class="blockquote mb-0">
+        <p class="lead"><%= @article.description %></p>
+        <footer class="footer" style="font-size: 90%;">
+          <small>
+            Created <%= time_ago_in_words(@article.created_at) %> ago
+          </small>
+          <ul style="margin: 0px;">
+            <%= link_to articles_path, data: { toggle: "tooltip", placement: "top" }, title: "Back to articles list" do %>
+              <%= icon('fas', 'arrow-circle-left', style:"margin: 0 5px") %>
+            <% end %>
+            <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+              <%= link_to edit_article_path(@article), data: { toggle: "tooltip", placement: "top" }, title: "Edit" do %>
+                <%= icon('fas', 'edit', style:"margin: 0 5px") %>
+              <% end %>
+              <%= link_to article_path(@article), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete" do %>
+                <%= icon('fas', 'trash', style:"margin: 0 5px") %>
+              <% end %>
+            <% end %>
+          </ul>
+        </footer>
+      </blockquote>
     </div>
   </div>
 </div>

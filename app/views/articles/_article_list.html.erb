@@ -19,16 +19,18 @@
                   <%= icon('fas', 'eye', style:"margin: 0 5px") %>
                 <% end %>
               </li>
-              <li>
-                <%= link_to edit_article_path(article), data: { toggle: "tooltip", placement: "top" }, title: "Edit" do %>
-                  <%= icon('fas', 'edit') %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to article_path(article), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete" do %>
-                  <%= icon('fas', 'trash') %>
-                <% end %>
-              </li>
+              <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+                <li>
+                  <%= link_to edit_article_path(article), data: { toggle: "tooltip", placement: "top" }, title: "Edit" do %>
+                    <%= icon('fas', 'edit', style:"margin: 0 5px") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to article_path(article), method: :delete, data: { confirm: "Are you sure?", toggle: "tooltip", placement: "top" }, title: "Delete" do %>
+                    <%= icon('fas', 'trash', style:"margin: 0 5px") %>
+                  <% end %>
+                </li>
+              <% end %>
             </ul>
           </footer>
         </blockquote>
